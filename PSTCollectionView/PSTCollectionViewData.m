@@ -126,7 +126,10 @@
 }
 
 - (NSIndexPath *)indexPathForItemAtGlobalIndex:(NSInteger)index {
-    return _globalItems[index];
+    if ([_globalItems count])
+        return _globalItems[index];
+    else
+        return nil;
 }
 
 - (NSInteger)globalIndexForItemAtIndexPath:(NSIndexPath *)indexPath {
