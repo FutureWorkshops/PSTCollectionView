@@ -2,7 +2,7 @@
 //  PSTCollectionViewLayout.m
 //  PSPDFKit
 //
-//  Copyright (c) 2012 Peter Steinberger. All rights reserved.
+//  Copyright (c) 2012-2013 Peter Steinberger. All rights reserved.
 //
 
 #import "PSTCollectionView.h"
@@ -245,10 +245,15 @@ NSString *const PSTCollectionViewLayoutAwokeFromNib = @"PSTCollectionViewLayoutA
 #pragma mark - Invalidating the Layout
 
 - (void)invalidateLayout {
+    [[_collectionView collectionViewData] invalidate];
 }
 
 - (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds {
-    return NO; // return YES to requery the layout for geometry information
+    // not sure about his..
+    if ((self.collectionView.bounds.size.width != newBounds.size.width ) || (self.collectionView.bounds.size.height != newBounds.size.height )) {
+        return YES;
+    }
+    return NO;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////

@@ -2,7 +2,7 @@
 //  PSTCollectionViewController.m
 //  PSPDFKit
 //
-//  Copyright (c) 2012 Peter Steinberger. All rights reserved.
+//  Copyright (c) 2012-2013 Peter Steinberger. All rights reserved.
 //
 
 #import "PSTCollectionViewController.h"
@@ -27,7 +27,7 @@
 - (id)initWithCoder:(NSCoder *)coder {
     self = [super initWithCoder:coder];
     if (self) {
-		self.layout = [PSUICollectionViewFlowLayout new];
+		self.layout = [PSTCollectionViewFlowLayout new];
         self.clearsSelectionOnViewWillAppear = YES;
         _collectionViewControllerFlags.appearsFirstTime = YES;
     }
